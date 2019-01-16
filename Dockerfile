@@ -5,7 +5,7 @@ RUN apt-get update &&  \
 
 RUN mkdir -p /usr/local/src/ \
     && cd /usr/local/src/ \
-    && curl -sL --fail -o mcpe_viz.zip https://github.com/Plethora777/mcpe_viz/archive/master.zip  \
+    && curl -sL --fail -o mcpe_viz.zip https://github.com/defektive/mcpe_viz/archive/master.zip  \
     && unzip mcpe_viz.zip  \
     && cd mcpe_viz-master  \
     && curl -sL --fail -o leveldb-mcpe.zip https://github.com/Mojang/leveldb-mcpe/archive/master.zip  \
@@ -30,4 +30,3 @@ WORKDIR /usr/local/src/mcpe_viz-master
 # build/mcpe_viz --db /tmp/world/ --out /tmp/out/map --html-all
 # maybe add qt4-default to the above packages and run this
 #RUN cd gui && qmake && make
-
