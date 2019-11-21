@@ -1,10 +1,14 @@
 #! /bin/bash
 
 MAP_NAME='level'
+TAG='latest'
+if [ "$1" == "defektive" ]; then
+  TAG='defektive'
+fi
 
 docker run \
-  -v `pwd`/worlds/$MAP_NAME:/tmp/world \
-  -v `pwd`/html:/tmp/out/ \
+  -v `pwd`/data/worlds/$MAP_NAME:/tmp/world \
+  -v `pwd`/data/html:/tmp/out/ \
   --rm \
   -it \
-  defektive/mcpe-viz build/mcpe_viz --db /tmp/worlds/ --out /tmp/out/$MAP_NAME --html-all
+  defektive/mcpe-viz:defektive build/mcpe_viz --db /tmp/world/ --out /tmp/out/$MAP_NAME --html-all

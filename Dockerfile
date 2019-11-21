@@ -3,9 +3,10 @@ FROM phusion/baseimage:0.11
 RUN apt-get update &&  \
     apt-get install -y make unzip cmake g++ libz-dev libpng-dev libxml2-dev qt4-qmake
 
+ARG MCPE_VIZ_URL=https://github.com/Plethora777/mcpe_viz/archive/master.zip
 RUN mkdir -p /usr/local/src/ \
     && cd /usr/local/src/ \
-    && curl -sL --fail -o mcpe_viz.zip https://github.com/Plethora777/mcpe_viz/archive/master.zip  \
+    && curl -sL --fail -o mcpe_viz.zip ${MCPE_VIZ_URL}  \
     && unzip mcpe_viz.zip  \
     && cd mcpe_viz-master  \
     && curl -sL --fail -o leveldb-mcpe.zip https://github.com/Mojang/leveldb-mcpe/archive/master.zip  \
